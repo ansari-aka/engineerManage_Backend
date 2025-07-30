@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const engineerSchema = new mongoose.Schema({
   name: {
@@ -7,7 +7,6 @@ const engineerSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['Developer', 'Tester', 'Project Manager', 'Designer'], // Add more roles as needed
     required: true,
   },
   skills: [String], // List of skills like "JavaScript", "React", etc.
@@ -15,10 +14,12 @@ const engineerSchema = new mongoose.Schema({
     type: Number, // Number of hours they are available per week
     required: true,
   },
-  assignedProjects: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Project', // Links to the Project model
-  }],
+  assignedProjects: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Project", // Links to the Project model
+    },
+  ],
   email: {
     type: String,
     unique: true,
@@ -29,6 +30,6 @@ const engineerSchema = new mongoose.Schema({
   },
 });
 
-const Engineer = mongoose.model('Engineer', engineerSchema);
+const Engineer = mongoose.model("Engineer", engineerSchema);
 
 module.exports = Engineer;

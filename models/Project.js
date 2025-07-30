@@ -13,10 +13,6 @@ const projectSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  teamMembers: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Engineer', // Links to Engineer model
-  }],
   status: {
     type: String,
     enum: ['Not Started', 'In Progress', 'Completed'],
