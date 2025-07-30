@@ -5,7 +5,17 @@ const cors = require("cors");
 const app = express();
 
 app.use(express.json()); // Middleware for parsing JSON bodies
-app.use(cors()); // Enable CORS for cross-origin requests
+const corsOptions = {
+  origin: [
+    "https://workasana-frontend-sable.vercel.app",
+    "http://localhost:5173",
+  ],
+  methods: ["GET", "POST", "DELETE", "OPTIONS"],
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions)); // Enable CORS for cross-origin requests
 
 // MongoDB connection
 require("dotenv").config();
