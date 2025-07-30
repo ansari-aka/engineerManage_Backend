@@ -39,7 +39,7 @@ const protect = require("./middleware/auth");
 
 // Use routes
 app.get("/", (req, res) => {
-  res.json({ message: "this is task management api" });
+  res.json({ message: "this is engineer, project management api" });
 });
 
 app.use("/api/engineers", protect, engineerRoutes);
