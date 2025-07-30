@@ -37,6 +37,10 @@ const userRoutes = require("./routes/userRoutes");
 const protect = require("./middleware/auth");
 
 // Use routes
+app.get("/", (req, res) => {
+  res.json({ message: "this is task management api" });
+});
+
 app.use("/api/engineers", protect, engineerRoutes);
 app.use("/api/projects", protect, projectRoutes);
 app.use("/api/assignments", protect, assignmentRoutes);
